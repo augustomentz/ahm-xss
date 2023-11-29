@@ -48,8 +48,6 @@ function formSubmitHandler(event) {
   renderMessages();
 }
 
-function teste() {
-    console.log('kkkkkkkkkkkkkkkkkkkkkk')
-}
+// fetch(`http://localhost:8080/hack?token=${localStorage.getItem('token')}`, { method: 'GET', headers: { 'Content-Type': 'application/json', }, })
 
 userMessageForm.addEventListener('submit', formSubmitHandler);
