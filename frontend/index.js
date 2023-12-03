@@ -5,12 +5,13 @@ const userMessagesList = document.querySelector('ul');
 
 function renderMessages() {
   let messageItems = '';
+
   for (const message of userMessages) {
     messageItems = `
       ${messageItems}
       <li class="message-item">
         <div class="message-image">
-          <img src="${message.image}" alt="${message.text}">
+          <img src="${message.image}">
         </div>
         <p>${message.text}</p>
       </li>
@@ -20,11 +21,15 @@ function renderMessages() {
   userMessagesList.innerHTML = messageItems;
 }
 
+function sanitize(data) {
+  return data.replace(/<(?!script)[^>]*>/g, '')
+}
+
 function formSubmitHandler(event) {
   event.preventDefault();
   const userMessageInput = event.target.querySelector('textarea');
   const messageImageInput = event.target.querySelector('input');
-  const userMessage = userMessageInput.value;
+  const userMessage = sanitize(userMessageInput.value);
   const imageUrl = messageImageInput.value;
 
   if (
